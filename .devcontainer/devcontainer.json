@@ -17,12 +17,16 @@
                 "dbaeumer.vscode-eslint",
                 "bradlc.vscode-tailwindcss",
                 "github.copilot" // Ensure Copilot is available in the container
-            ]
+            ],
+            "settings": {
+                // 🚫 Tell VS Code NOT to install its own credential helper
+                "git.credentialHelper": "none"
+            }
         }
     },
 
     "containerEnv": {
-        "GITHUB_USER": "INTenX",                         // or your actual GitHub username
+        "GITHUB_USER": "Ccbasta",                         // or your actual GitHub username
         "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"       // read from host env
     },
     
