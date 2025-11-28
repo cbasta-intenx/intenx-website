@@ -21,9 +21,7 @@
         }
     },
     
-    // Set the command to run after creation (optional, but useful for setup)
-    "postCreateCommand": "npm install -g create-next-app",
-
-    // Forward the SSH agent so the agent can interact with remote Git without a passphrase prompt
+    // Set the command to run after creation
+    "postCreateCommand": "bash .devcontainer/post-create.sh",
     "remoteUser": "node"
 }
