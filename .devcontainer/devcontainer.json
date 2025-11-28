@@ -1,0 +1,29 @@
+{
+    "name": "Next.js Agent Environment",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    // Set up the workspace to auto-open in the 'web' subdirectory later
+    "workspaceFolder": "/workspace",
+    
+    // Explicitly define the mount (this is key for stability in WSL/Windows)
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",    // Add VS Code extensions the agent/dev will need (e.g., for Next.js, Tailwind, or Git)
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint",
+                "bradlc.vscode-tailwindcss",
+                "github.copilot" // Ensure Copilot is available in the container
+            ]
+        }
+    },
+    
+    // Set the command to run after creation (optional, but useful for setup)
+    "postCreateCommand": "npm install -g create-next-app",
+
+    // Forward the SSH agent so the agent can interact with remote Git without a passphrase prompt
+    "remoteUser": "node"
+}
