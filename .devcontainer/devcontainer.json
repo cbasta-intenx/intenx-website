@@ -1,0 +1,36 @@
+{
+    "name": "Next.js Agent Environment",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    // Set up the workspace to auto-open in the 'web' subdirectory later
+    "workspaceFolder": "/workspace",
+    
+    // Explicitly define the mount (this is key for stability in WSL/Windows)
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",    // Add VS Code extensions the agent/dev will need (e.g., for Next.js, Tailwind, or Git)
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint",
+                "bradlc.vscode-tailwindcss",
+                "github.copilot" // Ensure Copilot is available in the container
+            ],
+            "settings": {
+                "dev.containers.copyGitConfig": false,
+                "dev.containers.gitCredentialHelperConfigLocation": "none"
+            }
+        }
+    },
+
+    "containerEnv": {
+        "GITHUB_USER": "cbasta",                      // your GitHub login, NOT org name or email
+        "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"    // pulled from host env
+    },
+    
+    // Set the command to run after creation
+    "postCreateCommand": "bash .devcontainer/post-create.sh",
+    "remoteUser": "node"
+}
