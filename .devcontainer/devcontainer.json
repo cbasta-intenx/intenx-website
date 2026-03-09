@@ -19,15 +19,15 @@
                 "github.copilot" // Ensure Copilot is available in the container
             ],
             "settings": {
-                // 🚫 Tell VS Code NOT to install its own credential helper
-                "git.credentialHelper": "none"
+                "dev.containers.copyGitConfig": false,
+                "dev.containers.gitCredentialHelperConfigLocation": "none"
             }
         }
     },
 
     "containerEnv": {
-        "GITHUB_USER": "Ccbasta",                         // or your actual GitHub username
-        "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"       // read from host env
+        "GITHUB_USER": "cbasta",                      // your GitHub login, NOT org name or email
+        "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"    // pulled from host env
     },
     
     // Set the command to run after creation
