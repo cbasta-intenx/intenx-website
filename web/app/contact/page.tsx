@@ -1,14 +1,30 @@
 export default function Contact() {
   return (
-    <section>
-      <h1 className="text-3xl font-bold mb-2">Contact INTenX</h1>
-      <p className="text-lg text-zinc-700 mb-4">To reach out about a project or availability, please provide:</p>
-      <ul className="list-disc ml-5 text-zinc-700 dark:text-zinc-300 mb-4">
-        <li>A short overview of your product</li>
-        <li>A description of what you need help with</li>
-        <li>An approximate project timeline</li>
+    <section className="max-w-xl">
+      <h1 className="text-3xl font-bold mb-8" style={{ color: "var(--foreground)" }}>
+        Contact INTenX
+      </h1>
+
+      <p className="text-base leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
+        To reach out about a project or availability, please provide:
+      </p>
+
+      <ul className="space-y-3 mb-10">
+        {[
+          "A short overview of your product",
+          "A description of what you need help with",
+          "An approximate project timeline",
+        ].map((item) => (
+          <li key={item} className="flex gap-3 text-sm" style={{ color: "var(--muted)" }}>
+            <span style={{ color: "var(--accent)", flexShrink: 0 }}>—</span>
+            {item}
+          </li>
+        ))}
       </ul>
-      <p className="text-zinc-700 dark:text-zinc-300">Email: <a href="mailto:info@intenx.io" className="underline">info@intenx.io</a></p>
+
+      <a href="mailto:info@intenx.io" className="btn-primary">
+        info@intenx.io
+      </a>
     </section>
   );
 }

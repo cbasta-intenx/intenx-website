@@ -1,36 +1,63 @@
+const services = [
+  {
+    title: "Production Test & Fixtures",
+    items: [
+      "Design and development of bed-of-nails fixtures",
+      "Creation of functional testers",
+      "Automation scripts and diagnostic tooling",
+      "Data capture and workflow design for high reliability",
+    ],
+  },
+  {
+    title: "Embedded Firmware & Electronics",
+    items: [
+      "Firmware for STM32, ESP32, and similar platforms",
+      "Sensor and peripheral interface development",
+      "Communications and diagnostic features",
+      "Production test modes and hooks in firmware",
+    ],
+  },
+  {
+    title: "Gateways, LoRaWAN & Edge Systems",
+    items: [
+      "Gateway development and integration",
+      "LoRaWAN connectivity and system design",
+      "Embedded edge processing",
+      "End-to-end data workflows for industrial systems",
+    ],
+  },
+];
+
 export default function Services() {
   return (
     <section>
-      <h1 className="text-3xl font-bold mb-2">INTenX Services</h1>
-      <h2 className="text-lg text-zinc-700 mb-6">Focused, practical engineering solutions for real-world hardware teams.</h2>
-      <div className="grid gap-8 md:grid-cols-3">
-        <div className="bg-white dark:bg-zinc-900 p-6 rounded shadow">
-          <h3 className="font-semibold text-xl mb-2">Production Test & Fixtures</h3>
-          <ul className="list-disc ml-5 text-zinc-700 dark:text-zinc-300">
-            <li>Design and development of bed-of-nails fixtures</li>
-            <li>Creation of functional testers</li>
-            <li>Automation scripts and diagnostic tooling</li>
-            <li>Data capture and workflow design for high reliability</li>
-          </ul>
-        </div>
-        <div className="bg-white dark:bg-zinc-900 p-6 rounded shadow">
-          <h3 className="font-semibold text-xl mb-2">Embedded Firmware & Electronics</h3>
-          <ul className="list-disc ml-5 text-zinc-700 dark:text-zinc-300">
-            <li>Firmware for STM32, ESP32, and similar platforms</li>
-            <li>Sensor and peripheral interface development</li>
-            <li>Communications and diagnostic features</li>
-            <li>Production test modes and hooks in firmware</li>
-          </ul>
-        </div>
-        <div className="bg-white dark:bg-zinc-900 p-6 rounded shadow">
-          <h3 className="font-semibold text-xl mb-2">Gateways, LoRaWAN & Edge Systems</h3>
-          <ul className="list-disc ml-5 text-zinc-700 dark:text-zinc-300">
-            <li>Gateway development and integration</li>
-            <li>LoRaWAN connectivity and system design</li>
-            <li>Embedded edge processing</li>
-            <li>End-to-end data workflows for industrial systems</li>
-          </ul>
-        </div>
+      <h1 className="text-3xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
+        INTenX Services
+      </h1>
+      <p className="text-base mb-12" style={{ color: "var(--muted)" }}>
+        Focused, practical engineering solutions for real-world hardware teams.
+      </p>
+
+      <div className="grid gap-6 md:grid-cols-3">
+        {services.map((service) => (
+          <div
+            key={service.title}
+            className="rounded-lg p-6"
+            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
+          >
+            <h3 className="font-semibold text-base mb-4" style={{ color: "var(--foreground)" }}>
+              {service.title}
+            </h3>
+            <ul className="space-y-2">
+              {service.items.map((item) => (
+                <li key={item} className="flex gap-2 text-sm leading-snug" style={{ color: "var(--muted)" }}>
+                  <span style={{ color: "var(--accent)", flexShrink: 0 }}>—</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
   );
