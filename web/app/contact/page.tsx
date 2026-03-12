@@ -1,30 +1,22 @@
+import ContactForm from "./ContactForm";
+
 export default function Contact() {
   return (
     <section className="max-w-xl">
-      <h1 className="text-3xl font-bold mb-8" style={{ color: "var(--foreground)" }}>
+      <h1 className="text-3xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
         Contact INTenX
       </h1>
-
-      <p className="text-base leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
-        To reach out about a project or availability, please provide:
+      <p className="text-sm mb-8" style={{ color: "var(--muted)" }}>
+        We respond within 1 business day.
       </p>
 
-      <ul className="space-y-3 mb-10">
-        {[
-          "A short overview of your product",
-          "A description of what you need help with",
-          "An approximate project timeline",
-        ].map((item) => (
-          <li key={item} className="flex gap-3 text-sm" style={{ color: "var(--muted)" }}>
-            <span style={{ color: "var(--accent)", flexShrink: 0 }}>—</span>
-            {item}
-          </li>
-        ))}
-      </ul>
+      <ContactForm />
 
-      <a href="mailto:info@intenx.io" className="btn-primary">
-        info@intenx.io
-      </a>
+      <p className="text-sm mt-8" style={{ color: "var(--muted)" }}>
+        Or reach us directly at{" "}
+        <a href="mailto:info@intenx.io" style={{ color: "var(--accent)" }}>info@intenx.io</a>
+        {" "}— 202 Lindenwood Dr., Michigan City, IN 46360
+      </p>
     </section>
   );
 }
