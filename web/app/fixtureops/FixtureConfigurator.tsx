@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-
-const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "YOUR_FORMSPREE_ID";
+import { sendFixtureEmail } from "../actions/sendEmail";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -194,33 +193,22 @@ export default function FixtureConfigurator() {
     setSubmitStatus("submitting");
 
     const r = result ?? calcRange(form);
-    const payload = new FormData();
-    payload.append("name", form.name);
-    payload.append("company", form.company);
-    payload.append("email", form.email);
-    payload.append("fixture_type", form.fixtureType);
-    payload.append("description", form.description);
-    payload.append("complexity", Array.from(form.complexity).join(", ") || "none");
-    payload.append("volume", form.volume);
-    payload.append("scope", form.scope);
-    payload.append("timeline", form.timeline);
-    payload.append(
-      "estimate",
-      r.talkInstead
+    const res = await sendFixtureEmail({
+      name: form.name,
+      company: form.company,
+      email: form.email,
+      fixtureType: form.fixtureType,
+      description: form.description,
+      complexity: Array.from(form.complexity).join(", ") || "none",
+      volume: form.volume,
+      scope: form.scope,
+      timeline: form.timeline,
+      estimate: r.talkInstead
         ? "Let's talk (complex / high-value program)"
-        : `${fmt(r.low)} – ${fmt(r.high)}`
-    );
+        : `${fmt(r.low)} – ${fmt(r.high)}`,
+    });
 
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: "POST",
-        body: payload,
-        headers: { Accept: "application/json" },
-      });
-      setSubmitStatus(res.ok ? "sent" : "error");
-    } catch {
-      setSubmitStatus("error");
-    }
+    setSubmitStatus(res.ok ? "sent" : "error");
   }
 
   // ── Render ────────────────────────────────────────────────────────────────
