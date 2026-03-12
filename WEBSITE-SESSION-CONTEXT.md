@@ -219,5 +219,5 @@ The RTGF session is mid-discussion on where the framework manifesto lives. Optio
 - Brand strategy: `~/business-ops/strategy/BRAND-STRATEGY.md`
 - RTGF-Core repo: `~/rtgf-core/`
 - RTGF-Core README (framework content source): `~/rtgf-core/README.md`
-- GitHub: https://github.com/INTenX/intenx-website.git
+- GitHub: https://github.com/cbasta-intenx/intenx-website.git
 - Control Center memory: `~/.claude/projects/-home-cbasta/memory/MEMORY.md`

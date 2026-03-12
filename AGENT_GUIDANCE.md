@@ -1,7 +1,7 @@
 # INTenX Website — Agent Guidance
 **Domain:** intenx.io — public web presence
 **Tech Stack:** Next.js + Tailwind CSS
-**GitHub:** github.com/INTenX/intenx-website
+**GitHub:** github.com/cbasta-intenx/intenx-website
 **Working Directory:** `~/intenx-website/`
 
 ---
@@ -35,7 +35,7 @@ When decisions are made (tech choices, content structure, component patterns), u
 - Branch from `main` for feature work
 - Conventional commits: `feat:`, `fix:`, `docs:`, `chore:`, `style:`
 - Co-author: `Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>`
-- Remote: `origin` = `https://github.com/INTenX/intenx-website.git`
+- Remote: `origin` = `https://github.com/cbasta-intenx/intenx-website.git`
 
 ---
 
@@ -115,4 +115,4 @@ git checkout main && git checkout -b feature/brand-refresh
 | Brand strategy | `~/business-ops/strategy/BRAND-STRATEGY.md` |
 | RTGF-Core repo | `~/rtgf-core/` |
 | Control Center memory | `~/.claude/projects/-home-cbasta/memory/MEMORY.md` |
-| GitHub remote | https://github.com/INTenX/intenx-website.git |
+| GitHub remote | https://github.com/cbasta-intenx/intenx-website.git |
