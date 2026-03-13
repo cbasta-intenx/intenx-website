@@ -47,7 +47,11 @@ export async function sendContactEmail(raw: unknown): Promise<{ ok: boolean; err
     return { ok: false };
   }
 
-  upsertContact({ email: p.email, name: p.name, company: p.company || undefined });
+  upsertContact({
+    email: p.email, name: p.name, company: p.company || undefined,
+    marketingOptIn: p.marketingOptIn,
+    pageUri: "https://intenx.io/contact", pageName: "Contact",
+  });
   return { ok: true };
 }
 
@@ -91,6 +95,10 @@ export async function sendFixtureEmail(raw: unknown): Promise<{ ok: boolean; err
     return { ok: false };
   }
 
-  upsertContact({ email: p.email, name: p.name, company: p.company || undefined });
+  upsertContact({
+    email: p.email, name: p.name, company: p.company || undefined,
+    marketingOptIn: p.marketingOptIn,
+    pageUri: "https://intenx.io/fixtureops", pageName: "Fixture Configurator",
+  });
   return { ok: true };
 }
