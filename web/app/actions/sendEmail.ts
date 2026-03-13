@@ -6,6 +6,13 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const TO = "cole.basta@makanuienterprises.com";
 const FROM = "INTenX Website <no-reply@intenx.io>";
 
+// In test/CI environments, skip actual sending to avoid burning Resend quota.
+// Set RESEND_API_KEY=test or omit it entirely — emails log to console instead.
+function isTestMode() {
+  const key = process.env.RESEND_API_KEY ?? "";
+  return !key || key.startsWith("test");
+}
+
 export interface ContactPayload {
   name: string;
   company: string;
@@ -28,6 +35,10 @@ export interface FixturePayload {
 }
 
 export async function sendContactEmail(p: ContactPayload): Promise<{ ok: boolean }> {
+  if (isTestMode()) {
+    console.log("[sendContactEmail] TEST MODE — skipping Resend:", p);
+    return { ok: true };
+  }
   const { error } = await resend.emails.send({
     from: FROM,
     to: TO,
@@ -47,6 +58,10 @@ export async function sendContactEmail(p: ContactPayload): Promise<{ ok: boolean
 }
 
 export async function sendFixtureEmail(p: FixturePayload): Promise<{ ok: boolean }> {
+  if (isTestMode()) {
+    console.log("[sendFixtureEmail] TEST MODE — skipping Resend:", p);
+    return { ok: true };
+  }
   const { error } = await resend.emails.send({
     from: FROM,
     to: TO,
