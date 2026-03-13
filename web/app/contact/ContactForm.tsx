@@ -45,29 +45,29 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div className="grid gap-4 md:grid-cols-2">
         <div className="flex flex-col gap-1">
-          <label className="text-xs font-medium" style={{ color: "var(--muted)" }}>Name</label>
-          <input name="name" type="text" required
+          <label htmlFor="name" className="text-xs font-medium" style={{ color: "var(--muted)" }}>Name</label>
+          <input id="name" name="name" type="text" required
             className="rounded px-3 py-2 text-sm outline-none"
             style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" }} />
         </div>
         <div className="flex flex-col gap-1">
-          <label className="text-xs font-medium" style={{ color: "var(--muted)" }}>Company</label>
-          <input name="company" type="text"
+          <label htmlFor="company" className="text-xs font-medium" style={{ color: "var(--muted)" }}>Company</label>
+          <input id="company" name="company" type="text"
             className="rounded px-3 py-2 text-sm outline-none"
             style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" }} />
         </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="text-xs font-medium" style={{ color: "var(--muted)" }}>Email</label>
-        <input name="email" type="email" required
+        <label htmlFor="email" className="text-xs font-medium" style={{ color: "var(--muted)" }}>Email</label>
+        <input id="email" name="email" type="email" required
           className="rounded px-3 py-2 text-sm outline-none"
           style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" }} />
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="text-xs font-medium" style={{ color: "var(--muted)" }}>Inquiry type</label>
-        <select name="inquiry_type"
+        <label htmlFor="inquiry_type" className="text-xs font-medium" style={{ color: "var(--muted)" }}>Inquiry type</label>
+        <select id="inquiry_type" name="inquiry_type"
           className="rounded px-3 py-2 text-sm outline-none"
           style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" }}>
           {inquiryTypes.map((t) => <option key={t} value={t}>{t}</option>)}
@@ -75,8 +75,8 @@ export default function ContactForm() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="text-xs font-medium" style={{ color: "var(--muted)" }}>Message</label>
-        <textarea name="message" required rows={5}
+        <label htmlFor="message" className="text-xs font-medium" style={{ color: "var(--muted)" }}>Message</label>
+        <textarea id="message" name="message" required rows={5}
           className="rounded px-3 py-2 text-sm outline-none resize-none"
           style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" }} />
       </div>

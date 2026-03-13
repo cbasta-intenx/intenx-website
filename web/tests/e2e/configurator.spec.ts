@@ -46,7 +46,7 @@ test("configurator: completes full flow and shows price range", async ({ page })
   await page.getByRole("button", { name: /See estimate/i }).click();
 
   // Result — price range shown
-  await expect(page.getByText(/Fixture estimate/i)).toBeVisible();
+  await expect(page.getByText("Fixture estimate", { exact: true })).toBeVisible();
   await expect(page.getByText(/\$\d/)).toBeVisible();
   await expect(page.getByRole("button", { name: /Send my estimate request/i })).toBeVisible();
 });
