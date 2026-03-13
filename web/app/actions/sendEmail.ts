@@ -6,7 +6,7 @@ import { upsertContact } from "../../lib/hubspot";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const TO = "cole.basta@makanuienterprises.com";
-const FROM = "INTenX Website <no-reply@intenx.io>";
+const FROM = "INTenX Website <no-reply@updates.intenx.io>";
 
 function isTestMode() {
   const key = process.env.RESEND_API_KEY ?? "";
