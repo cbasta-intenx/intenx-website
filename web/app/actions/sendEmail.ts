@@ -1,20 +1,10 @@
 "use server";
 
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
+const resend = new Resend(process.env.RESEND_API_KEY);
 const TO = "cole.basta@makanuienterprises.com";
-
-function transporter() {
-  return nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  });
-}
+const FROM = "INTenX Website <no-reply@intenx.io>";
 
 export interface ContactPayload {
   name: string;
@@ -38,53 +28,45 @@ export interface FixturePayload {
 }
 
 export async function sendContactEmail(p: ContactPayload): Promise<{ ok: boolean }> {
-  try {
-    await transporter().sendMail({
-      from: `"INTenX Website" <${process.env.GMAIL_USER}>`,
-      to: TO,
-      replyTo: p.email,
-      subject: `[intenx.io] ${p.inquiryType} inquiry — ${p.name}${p.company ? ` (${p.company})` : ""}`,
-      text: [
-        `Name: ${p.name}`,
-        `Company: ${p.company || "—"}`,
-        `Email: ${p.email}`,
-        `Inquiry type: ${p.inquiryType}`,
-        "",
-        p.message,
-      ].join("\n"),
-    });
-    return { ok: true };
-  } catch (err) {
-    console.error("sendContactEmail error:", err);
-    return { ok: false };
-  }
+  const { error } = await resend.emails.send({
+    from: FROM,
+    to: TO,
+    replyTo: p.email,
+    subject: `[intenx.io] ${p.inquiryType} inquiry — ${p.name}${p.company ? ` (${p.company})` : ""}`,
+    text: [
+      `Name: ${p.name}`,
+      `Company: ${p.company || "—"}`,
+      `Email: ${p.email}`,
+      `Inquiry type: ${p.inquiryType}`,
+      "",
+      p.message,
+    ].join("\n"),
+  });
+  if (error) console.error("sendContactEmail error:", error);
+  return { ok: !error };
 }
 
 export async function sendFixtureEmail(p: FixturePayload): Promise<{ ok: boolean }> {
-  try {
-    await transporter().sendMail({
-      from: `"INTenX Website" <${process.env.GMAIL_USER}>`,
-      to: TO,
-      replyTo: p.email,
-      subject: `[intenx.io] Fixture estimate request — ${p.name}${p.company ? ` (${p.company})` : ""}`,
-      text: [
-        `Name: ${p.name}`,
-        `Company: ${p.company || "—"}`,
-        `Email: ${p.email}`,
-        "",
-        `Fixture type: ${p.fixtureType}`,
-        `Description: ${p.description || "—"}`,
-        `Complexity factors: ${p.complexity || "none"}`,
-        `Volume: ${p.volume}`,
-        `Scope confidence: ${p.scope}`,
-        `Timeline: ${p.timeline}`,
-        "",
-        `Estimate shown: ${p.estimate}`,
-      ].join("\n"),
-    });
-    return { ok: true };
-  } catch (err) {
-    console.error("sendFixtureEmail error:", err);
-    return { ok: false };
-  }
+  const { error } = await resend.emails.send({
+    from: FROM,
+    to: TO,
+    replyTo: p.email,
+    subject: `[intenx.io] Fixture estimate request — ${p.name}${p.company ? ` (${p.company})` : ""}`,
+    text: [
+      `Name: ${p.name}`,
+      `Company: ${p.company || "—"}`,
+      `Email: ${p.email}`,
+      "",
+      `Fixture type: ${p.fixtureType}`,
+      `Description: ${p.description || "—"}`,
+      `Complexity factors: ${p.complexity}`,
+      `Volume: ${p.volume}`,
+      `Scope confidence: ${p.scope}`,
+      `Timeline: ${p.timeline}`,
+      "",
+      `Estimate shown: ${p.estimate}`,
+    ].join("\n"),
+  });
+  if (error) console.error("sendFixtureEmail error:", error);
+  return { ok: !error };
 }
