@@ -61,7 +61,8 @@ function calcRange(form: FormState): { low: number; high: number; talkInstead: b
 
   // "Let's talk" triggers
   const allThree = complexity.has("rf") && complexity.has("hv") && complexity.has("regulatory");
-  const noDescription = fixtureType === "notsure" && form.description.trim().length < 10;
+  const descWords = form.description.trim().split(/\s+/).filter(Boolean).length;
+  const noDescription = fixtureType === "notsure" && descWords < 10;
   if (noDescription || allThree) return { low: 0, high: 0, talkInstead: true, conceptNote: false };
 
   const baseKey = fixtureType === "notsure" ? "fct" : fixtureType || "fct";
