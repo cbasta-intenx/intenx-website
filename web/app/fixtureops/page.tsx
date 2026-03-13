@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import FixtureConfigurator from "./FixtureConfigurator";
+
+export const metadata: Metadata = {
+  title: "FixtureOps — Get a Fixture Estimate",
+  description: "Scope your test fixture project and get an instant price range. FCT, ICT, programming jigs, assembly testers — no sales call required.",
+  alternates: { canonical: "/fixtureops" },
+  openGraph: { title: "FixtureOps — Get a Fixture Estimate | INTenX", url: "/fixtureops" },
+};
 
 export default function FixtureOps() {
   return (

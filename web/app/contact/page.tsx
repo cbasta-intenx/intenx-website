@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with INTenX. We respond within 1 business day.",
+  alternates: { canonical: "/contact" },
+  openGraph: { title: "Contact | INTenX", url: "/contact" },
+};
 
 export default function Contact() {
   return (

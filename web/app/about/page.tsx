@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "INTenX is a founder-led production test engineering company based in Michigan City, Indiana.",
+  alternates: { canonical: "/about" },
+  openGraph: { title: "About | INTenX", url: "/about" },
+};
+
 export default function About() {
   return (
     <section className="max-w-2xl">

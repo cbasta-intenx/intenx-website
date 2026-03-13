@@ -13,9 +13,36 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "INTenX",
+  url: "https://intenx.io",
+  description: "Test Fixtures as a Service for hardware and manufacturing teams.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: "cole.basta@makanuienterprises.com",
+  },
+};
+
 export const metadata: Metadata = {
-  title: "INTenX — Managed Production Test",
+  metadataBase: new URL("https://intenx.io"),
+  title: {
+    default: "INTenX — Managed Production Test",
+    template: "%s | INTenX",
+  },
   description: "INTenX designs, builds, and manages production test fixtures — connected to a platform that gives your team real-time yield data, AI-assisted diagnostics, and remote support.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
+  },
+  openGraph: {
+    siteName: "INTenX",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -25,6 +52,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema).replace(/</g, "\\u003c") }}
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
             style={{ background: "var(--background)", color: "var(--foreground)" }}>
 

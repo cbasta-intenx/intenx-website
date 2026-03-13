@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "INTenX — Managed Production Test",
+  alternates: { canonical: "/" },
+  openGraph: { title: "INTenX — Managed Production Test", url: "/" },
+};
+
 const pillars = [
   {
     label: "Fixed-price fixtures",

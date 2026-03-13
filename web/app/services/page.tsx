@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description: "Production test fixtures, FixtureOps platform, and AI enablement for hardware companies.",
+  alternates: { canonical: "/services" },
+  openGraph: { title: "Services | INTenX", url: "/services" },
+};
+
 const services = [
   {
     title: "FixtureOps — Production Test Fixtures",
