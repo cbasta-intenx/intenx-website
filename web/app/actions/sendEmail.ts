@@ -1,44 +1,30 @@
 "use server";
 
 import { Resend } from "resend";
+import { ContactSchema, FixtureSchema } from "../../lib/schemas";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const TO = "cole.basta@makanuienterprises.com";
 const FROM = "INTenX Website <no-reply@intenx.io>";
 
-// In test/CI environments, skip actual sending to avoid burning Resend quota.
-// Set RESEND_API_KEY=test or omit it entirely — emails log to console instead.
 function isTestMode() {
   const key = process.env.RESEND_API_KEY ?? "";
   return !key || key.startsWith("test");
 }
 
-export interface ContactPayload {
-  name: string;
-  company: string;
-  email: string;
-  inquiryType: string;
-  message: string;
-}
+export async function sendContactEmail(raw: unknown): Promise<{ ok: boolean; error?: string }> {
+  const parsed = ContactSchema.safeParse(raw);
+  if (!parsed.success) {
+    console.warn("sendContactEmail: invalid payload", parsed.error.flatten());
+    return { ok: false, error: "invalid_input" };
+  }
+  const p = parsed.data;
 
-export interface FixturePayload {
-  name: string;
-  company: string;
-  email: string;
-  fixtureType: string;
-  description: string;
-  complexity: string;
-  volume: string;
-  scope: string;
-  timeline: string;
-  estimate: string;
-}
-
-export async function sendContactEmail(p: ContactPayload): Promise<{ ok: boolean }> {
   if (isTestMode()) {
     console.log("[sendContactEmail] TEST MODE — skipping Resend:", p);
     return { ok: true };
   }
+
   const { error } = await resend.emails.send({
     from: FROM,
     to: TO,
@@ -53,15 +39,24 @@ export async function sendContactEmail(p: ContactPayload): Promise<{ ok: boolean
       p.message,
     ].join("\n"),
   });
+
   if (error) console.error("sendContactEmail error:", error);
   return { ok: !error };
 }
 
-export async function sendFixtureEmail(p: FixturePayload): Promise<{ ok: boolean }> {
+export async function sendFixtureEmail(raw: unknown): Promise<{ ok: boolean; error?: string }> {
+  const parsed = FixtureSchema.safeParse(raw);
+  if (!parsed.success) {
+    console.warn("sendFixtureEmail: invalid payload", parsed.error.flatten());
+    return { ok: false, error: "invalid_input" };
+  }
+  const p = parsed.data;
+
   if (isTestMode()) {
     console.log("[sendFixtureEmail] TEST MODE — skipping Resend:", p);
     return { ok: true };
   }
+
   const { error } = await resend.emails.send({
     from: FROM,
     to: TO,
@@ -82,6 +77,7 @@ export async function sendFixtureEmail(p: FixturePayload): Promise<{ ok: boolean
       `Estimate shown: ${p.estimate}`,
     ].join("\n"),
   });
+
   if (error) console.error("sendFixtureEmail error:", error);
   return { ok: !error };
 }
