@@ -28,6 +28,7 @@ interface FormState {
   name: string;
   company: string;
   email: string;
+  marketingOptIn: boolean;
 }
 
 // ── Pricing logic ───────────────────────────────────────────────────────────
@@ -159,6 +160,7 @@ export default function FixtureConfigurator() {
     name: "",
     company: "",
     email: "",
+    marketingOptIn: false,
   });
   const [result, setResult] = useState<ReturnType<typeof calcRange> | null>(null);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
@@ -207,6 +209,7 @@ export default function FixtureConfigurator() {
       estimate: r.talkInstead
         ? "Let's talk (complex / high-value program)"
         : `${fmt(r.low)} – ${fmt(r.high)}`,
+      marketingOptIn: form.marketingOptIn,
     });
 
     setSubmitStatus(res.ok ? "sent" : "error");
@@ -432,6 +435,20 @@ export default function FixtureConfigurator() {
                 className="rounded px-3 py-2 text-sm outline-none"
                 style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" }}
               />
+            </div>
+
+            <div className="flex gap-3 items-start">
+              <input
+                id="fixture_marketing_opt_in"
+                type="checkbox"
+                checked={form.marketingOptIn}
+                onChange={(e) => setForm((f) => ({ ...f, marketingOptIn: e.target.checked }))}
+                className="mt-0.5 shrink-0"
+              />
+              <label htmlFor="fixture_marketing_opt_in" className="text-xs" style={{ color: "var(--muted)" }}>
+                I agree to receive occasional product updates and news from INTenX. Unsubscribe at any time.{" "}
+                <a href="/privacy" style={{ color: "var(--accent)" }}>Privacy policy</a>.
+              </label>
             </div>
 
             {submitStatus === "error" && (

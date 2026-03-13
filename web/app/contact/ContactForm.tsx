@@ -19,6 +19,7 @@ export default function ContactForm() {
       email: fd.get("email") as string,
       inquiryType: fd.get("inquiry_type") as string,
       message: fd.get("message") as string,
+      marketingOptIn: fd.get("marketing_opt_in") === "on",
     });
 
     if (result.ok) {
@@ -79,6 +80,14 @@ export default function ContactForm() {
         <textarea id="message" name="message" required rows={5}
           className="rounded px-3 py-2 text-sm outline-none resize-none"
           style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" }} />
+      </div>
+
+      <div className="flex gap-3 items-start">
+        <input id="marketing_opt_in" name="marketing_opt_in" type="checkbox" className="mt-0.5 shrink-0" />
+        <label htmlFor="marketing_opt_in" className="text-xs" style={{ color: "var(--muted)" }}>
+          I agree to receive occasional product updates and news from INTenX. Unsubscribe at any time.{" "}
+          <a href="/privacy" style={{ color: "var(--accent)" }}>Privacy policy</a>.
+        </label>
       </div>
 
       {status === "error" && (

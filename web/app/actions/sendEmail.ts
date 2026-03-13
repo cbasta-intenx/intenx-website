@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { ContactSchema, FixtureSchema } from "../../lib/schemas";
+import { upsertContact } from "../../lib/hubspot";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const TO = "cole.basta@makanuienterprises.com";
@@ -35,13 +36,19 @@ export async function sendContactEmail(raw: unknown): Promise<{ ok: boolean; err
       `Company: ${p.company || "—"}`,
       `Email: ${p.email}`,
       `Inquiry type: ${p.inquiryType}`,
+      `Marketing opt-in: ${p.marketingOptIn ? "Yes" : "No"}`,
       "",
       p.message,
     ].join("\n"),
   });
 
-  if (error) console.error("sendContactEmail error:", error);
-  return { ok: !error };
+  if (error) {
+    console.error("sendContactEmail error:", error);
+    return { ok: false };
+  }
+
+  upsertContact({ email: p.email, name: p.name, company: p.company || undefined });
+  return { ok: true };
 }
 
 export async function sendFixtureEmail(raw: unknown): Promise<{ ok: boolean; error?: string }> {
@@ -75,9 +82,15 @@ export async function sendFixtureEmail(raw: unknown): Promise<{ ok: boolean; err
       `Timeline: ${p.timeline}`,
       "",
       `Estimate shown: ${p.estimate}`,
+      `Marketing opt-in: ${p.marketingOptIn ? "Yes" : "No"}`,
     ].join("\n"),
   });
 
-  if (error) console.error("sendFixtureEmail error:", error);
-  return { ok: !error };
+  if (error) {
+    console.error("sendFixtureEmail error:", error);
+    return { ok: false };
+  }
+
+  upsertContact({ email: p.email, name: p.name, company: p.company || undefined });
+  return { ok: true };
 }
