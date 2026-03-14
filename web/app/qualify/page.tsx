@@ -85,7 +85,7 @@ export default function QualifyPage() {
             Every qualification program is different. Let&apos;s talk through your board, your test requirements,
             and your production timeline.
           </p>
-          <a href="/contact?inquiry=Design+Qualification" className="btn-primary">
+          <a href="/contact?inquiry=qualify" className="btn-primary">
             Talk to us about DVT fixtures
           </a>
         </div>

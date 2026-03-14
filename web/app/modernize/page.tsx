@@ -84,7 +84,7 @@ export default function ModernizePage() {
             Tell us what fixtures you have, your test hardware interface, and your connectivity constraints.
             We&apos;ll scope a gateway integration.
           </p>
-          <a href="/contact?inquiry=Connect+Existing+Fixtures" className="btn-primary">
+          <a href="/contact?inquiry=modernize" className="btn-primary">
             Connect your fixtures
           </a>
         </div>
