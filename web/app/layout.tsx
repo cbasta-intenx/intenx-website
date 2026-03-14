@@ -70,7 +70,18 @@ export default function RootLayout({
             </a>
             <ul className="flex items-center gap-7 text-sm font-medium" style={{ color: "var(--muted)" }}>
               <li><a href="/" className="transition-colors hover:text-white">Home</a></li>
-              <li><a href="/services" className="transition-colors hover:text-white">Services</a></li>
+              <li className="relative group">
+                <span className="transition-colors hover:text-white cursor-default select-none">Solutions</span>
+                <ul
+                  className="absolute left-0 top-full pt-2 min-w-[200px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity z-50"
+                >
+                  <li style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "0.5rem", overflow: "hidden" }}>
+                    <a href="/qualify" className="block px-4 py-2.5 text-xs transition-colors hover:text-white hover:bg-[var(--border)]" style={{ color: "var(--muted)" }}>Design Qualification</a>
+                    <a href="/fixtureops" className="block px-4 py-2.5 text-xs transition-colors hover:text-white hover:bg-[var(--border)]" style={{ color: "var(--muted)", borderTop: "1px solid var(--border)" }}>Production Fixtures</a>
+                    <a href="/modernize" className="block px-4 py-2.5 text-xs transition-colors hover:text-white hover:bg-[var(--border)]" style={{ color: "var(--muted)", borderTop: "1px solid var(--border)" }}>Connect Existing Fixtures</a>
+                  </li>
+                </ul>
+              </li>
               <li><a href="/about" className="transition-colors hover:text-white">About</a></li>
               <li><a href="/contact" className="transition-colors hover:text-white">Contact</a></li>
               <li>

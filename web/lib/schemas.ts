@@ -4,7 +4,7 @@ export const ContactSchema = z.object({
   name:           z.string().min(1).max(200),
   company:        z.string().max(200).optional().default(""),
   email:          z.string().email().max(254),
-  inquiryType:    z.enum(["Fixture quote", "Platform demo", "Partnership", "Other"]),
+  inquiryType:    z.enum(["Fixture quote", "Platform demo", "Design Qualification", "Connect Existing Fixtures", "Partnership", "Other"]),
   message:        z.string().min(10).max(5000),
   marketingOptIn: z.boolean().default(false),
 });
