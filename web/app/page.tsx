@@ -1,23 +1,61 @@
-export default function Home() {
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "INTenX — Custom Test Infrastructure",
+  alternates: { canonical: "/" },
+  openGraph: { title: "INTenX — Custom Test Infrastructure", url: "/" },
+};
+
+const pillars = [
+  {
+    label: "Fixed-price fixtures",
+    body: "Functional testers, bed-of-nails, programming jigs, and assembly testers — scoped, priced, and delivered. No hourly surprises.",
+  },
+  {
+    label: "Connected platform",
+    body: "Every fixture ships connected. Real-time yield data, AI-assisted diagnostics, and remote visibility through the FixtureOps platform.",
+  },
+  {
+    label: "Managed lifecycle",
+    body: "Test Fixtures as a Service (TFaaS) — INTenX owns the fixture hardware, you pay per test. Maintenance, updates, and support included.",
+  },
+];
+
+export default function Home() {
   return (
-    <section className="flex flex-col items-start justify-center min-h-[55vh] max-w-2xl">
-      <p className="text-sm font-medium uppercase tracking-widest mb-6" style={{ color: "var(--accent)" }}>
-        Engineering Services
-      </p>
-      <h1 className="text-5xl font-bold leading-tight mb-5" style={{ color: "var(--foreground)" }}>
-        INTenX
-      </h1>
-      <h2 className="text-xl font-normal mb-6" style={{ color: "var(--muted)" }}>
-        Engineering &bull; Embedded Systems &bull; Production Test
-      </h2>
-      <p className="text-lg leading-relaxed mb-10" style={{ color: "var(--muted)", maxWidth: "540px" }}>
-        INTenX supports hardware teams in building robust products by combining
-        embedded development, firmware expertise, and production test systems.
-      </p>
-      <a href="/services" className="btn-primary">
-        View Services
-      </a>
-    </section>
+    <>
+      {/* Hero */}
+      <section className="pb-20 pt-4">
+        <p className="text-xs font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--accent)" }}>
+          Production Test Infrastructure
+        </p>
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6" style={{ color: "var(--foreground)" }}>
+          Custom Test Infrastructure.
+        </h1>
+        <p className="text-lg leading-relaxed mb-10 max-w-2xl" style={{ color: "var(--muted)" }}>
+          Designed for your product. Managed for your team.
+        </p>
+        <div className="flex flex-wrap gap-4 items-center">
+          <a href="/fixtureops" className="btn-primary">Get a Fixture Estimate</a>
+          <a href="/contact"
+             className="text-sm font-medium transition-colors hover:text-white"
+             style={{ color: "var(--muted)" }}>
+            Talk to us →
+          </a>
+        </div>
+      </section>
+
+      {/* Pillars */}
+      <section style={{ borderTop: "1px solid var(--border)" }} className="pt-16">
+        <div className="grid gap-8 md:grid-cols-3">
+          {pillars.map((p) => (
+            <div key={p.label}>
+              <p className="text-sm font-semibold mb-3" style={{ color: "var(--foreground)" }}>{p.label}</p>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

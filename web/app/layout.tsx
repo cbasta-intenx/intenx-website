@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,9 +13,36 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "INTenX",
+  url: "https://intenx.io",
+  description: "Test Fixtures as a Service for hardware and manufacturing teams.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: "cole.basta@makanuienterprises.com",
+  },
+};
+
 export const metadata: Metadata = {
-  title: "INTenX Engineering Services",
-  description: "Embedded systems, firmware, production test, and gateway solutions for hardware teams.",
+  metadataBase: new URL("https://intenx.io"),
+  title: {
+    default: "INTenX — Custom Test Infrastructure",
+    template: "%s | INTenX",
+  },
+  description: "INTenX designs, builds, and manages production test fixtures — connected to a platform that gives your team real-time yield data, AI-assisted diagnostics, and remote support.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
+  },
+  openGraph: {
+    siteName: "INTenX",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -24,6 +52,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema).replace(/</g, "\\u003c") }}
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
             style={{ background: "var(--background)", color: "var(--foreground)" }}>
 
@@ -34,11 +68,16 @@ export default function RootLayout({
                style={{ color: "var(--foreground)" }}>
               INTenX
             </a>
-            <ul className="flex gap-7 text-sm font-medium" style={{ color: "var(--muted)" }}>
+            <ul className="flex items-center gap-7 text-sm font-medium" style={{ color: "var(--muted)" }}>
               <li><a href="/" className="transition-colors hover:text-white">Home</a></li>
               <li><a href="/services" className="transition-colors hover:text-white">Services</a></li>
               <li><a href="/about" className="transition-colors hover:text-white">About</a></li>
               <li><a href="/contact" className="transition-colors hover:text-white">Contact</a></li>
+              <li>
+                <a href="/fixtureops" className="btn-primary" style={{ padding: "0.375rem 0.875rem", fontSize: "0.8rem" }}>
+                  Get a Fixture Estimate
+                </a>
+              </li>
             </ul>
           </nav>
         </header>
@@ -50,11 +89,10 @@ export default function RootLayout({
         <footer style={{ borderTop: "1px solid var(--border)", background: "var(--surface)" }}>
           <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between gap-8">
             <div>
-              <p className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>INTenX Engineering Services</p>
+              <p className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>INTenX</p>
               <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
-                202 Lindenwood Dr.<br />
-                Michigan City, IN 46360<br />
-                United States
+                Custom Test Infrastructure.<br />
+                Michigan City, IN 46360
               </p>
             </div>
             <div className="text-sm" style={{ color: "var(--muted)" }}>
@@ -67,6 +105,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <Analytics />
 
       </body>
     </html>

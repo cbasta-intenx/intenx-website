@@ -1,0 +1,39 @@
+# INTenX
+
+> INTenX is a B2B engineering company specializing in production test fixture design,
+> manufacturing, and managed lifecycle services for electronics and hardware companies.
+> We serve OEMs, contract manufacturers, and product development teams across North America.
+> Based in Michigan City, Indiana.
+
+INTenX engineers and delivers functional circuit testers (FCT), bed-of-nails fixtures (ICT),
+programming jigs (JTAG/SWD/UART), assembly testers, and multi-up panel fixtures. Every fixture
+ships connected to the FixtureOps platform for real-time yield data and remote diagnostics.
+We also offer Test Fixtures as a Service (TFaaS) — managed hardware, pay-per-test model.
+
+## Services
+
+- [Production Test Fixtures](https://intenx.io/services): Full fixture engineering — FCT, ICT,
+  programming jigs, assembly testers, multi-up panels. Fixed-price, connected platform.
+- [FixtureOps Platform](https://intenx.io/services): Connected test infrastructure — real-time
+  yield dashboards, AI-assisted diagnostics, MES/ERP integration. Built on MQTT, Sparkplug B,
+  PostgreSQL.
+- [AI Enablement & Engineering Consulting](https://intenx.io/services): AI workflow design for
+  manufacturing teams, context governance, embedded systems and firmware consulting.
+
+## Get an Estimate
+
+- [Fixture Quote Configurator](https://intenx.io/fixtureops): Interactive 6-step tool — describe
+  your board, select complexity factors, get an instant price range. No sales call required.
+  Estimates range from $1,500 (programming jig) to $65,000+ (high-complexity ICT).
+
+## Company
+
+- [About INTenX](https://intenx.io/about): Founder-led. Cole Basta, 30+ years hardware and
+  test engineering. Indiana-based, serving manufacturers who build real things.
+- [Contact](https://intenx.io/contact): info@intenx.io — 202 Lindenwood Dr., Michigan City,
+  IN 46360. Response within 1 business day.
+
+## Optional
+
+- [llms-full.txt](https://intenx.io/llms-full.txt): Extended service catalog with capability
+  details, fixture type specifications, pricing parameters, and technology stack.
