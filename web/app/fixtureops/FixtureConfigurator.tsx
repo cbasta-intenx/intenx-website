@@ -64,7 +64,7 @@ function calcRange(form: FormState): { low: number; high: number; talkInstead: b
   const allThree = complexity.has("rf") && complexity.has("hv") && complexity.has("regulatory");
   if (fixtureType === "notsure" || allThree) return { low: 0, high: 0, talkInstead: true, conceptNote: false };
 
-  const baseKey = fixtureType === "notsure" ? "fct" : fixtureType || "fct";
+  const baseKey = fixtureType || "fct";
   const tier = getComplexityTier(complexity);
   const baseRow = BASE_RANGES[baseKey] ?? BASE_RANGES.fct;
   let [low, high] = baseRow[tier] ?? baseRow[0];
