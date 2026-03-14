@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "INTenX — Managed Production Test",
+  title: "INTenX — Custom Test Infrastructure",
   alternates: { canonical: "/" },
-  openGraph: { title: "INTenX — Managed Production Test", url: "/" },
+  openGraph: { title: "INTenX — Custom Test Infrastructure", url: "/" },
 };
 
 const pillars = [
@@ -30,12 +30,10 @@ export default function Home() {
           Production Test Infrastructure
         </p>
         <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6" style={{ color: "var(--foreground)" }}>
-          Managed Production Test.<br />
-          Built for Hardware Companies.
+          Custom Test Infrastructure.
         </h1>
         <p className="text-lg leading-relaxed mb-10 max-w-2xl" style={{ color: "var(--muted)" }}>
-          INTenX designs, builds, and manages production test fixtures — connected to a platform
-          that gives your team real-time yield data, AI-assisted diagnostics, and remote support.
+          Designed for your product. Managed for your team.
         </p>
         <div className="flex flex-wrap gap-4 items-center">
           <a href="/fixtureops" className="btn-primary">Get a Fixture Estimate</a>

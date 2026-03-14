@@ -2,8 +2,8 @@ import { test, expect } from "@playwright/test";
 
 test("home page loads with correct hero content", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /Managed Production Test/i })).toBeVisible();
-  await expect(page.getByText(/Built for Hardware Companies/i)).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Custom Test Infrastructure/i })).toBeVisible();
+  await expect(page.getByText(/Designed for your product/i)).toBeVisible();
 });
 
 test("home page CTA links to /fixtureops", async ({ page }) => {

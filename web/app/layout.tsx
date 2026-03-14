@@ -29,7 +29,7 @@ const orgSchema = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://intenx.io"),
   title: {
-    default: "INTenX — Managed Production Test",
+    default: "INTenX — Custom Test Infrastructure",
     template: "%s | INTenX",
   },
   description: "INTenX designs, builds, and manages production test fixtures — connected to a platform that gives your team real-time yield data, AI-assisted diagnostics, and remote support.",
@@ -91,7 +91,7 @@ export default function RootLayout({
             <div>
               <p className="font-semibold mb-3" style={{ color: "var(--foreground)" }}>INTenX</p>
               <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
-                Managed Production Test.<br />
+                Custom Test Infrastructure.<br />
                 Michigan City, IN 46360
               </p>
             </div>

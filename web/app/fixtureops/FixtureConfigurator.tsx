@@ -62,9 +62,7 @@ function calcRange(form: FormState): { low: number; high: number; talkInstead: b
 
   // "Let's talk" triggers
   const allThree = complexity.has("rf") && complexity.has("hv") && complexity.has("regulatory");
-  const descWords = form.description.trim().split(/\s+/).filter(Boolean).length;
-  const noDescription = fixtureType === "notsure" && descWords < 10;
-  if (noDescription || allThree) return { low: 0, high: 0, talkInstead: true, conceptNote: false };
+  if (fixtureType === "notsure" || allThree) return { low: 0, high: 0, talkInstead: true, conceptNote: false };
 
   const baseKey = fixtureType === "notsure" ? "fct" : fixtureType || "fct";
   const tier = getComplexityTier(complexity);
@@ -222,7 +220,7 @@ export default function FixtureConfigurator() {
       <div className="rounded-lg p-8" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
         <p className="font-semibold text-lg mb-2" style={{ color: "var(--foreground)" }}>Request received.</p>
         <p className="text-sm" style={{ color: "var(--muted)" }}>
-          Cole will follow up within 1 business day to confirm your estimate and next steps.
+          We&apos;ll follow up within 1 business day to confirm your estimate and next steps.
         </p>
       </div>
     );
@@ -377,7 +375,7 @@ export default function FixtureConfigurator() {
               </p>
               <p className="text-sm" style={{ color: "var(--muted)" }}>
                 Your program has characteristics that warrant a direct conversation before we put a
-                number on it. Fill in your contact info and Cole will reach out within 1 business day.
+                number on it. Fill in your contact info and we&apos;ll reach out within 1 business day.
               </p>
             </div>
           ) : (
