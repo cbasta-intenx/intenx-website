@@ -24,9 +24,9 @@ test("MP-2: /modernize returns 200", async ({ page }) => {
 test("MP-3: homepage has three routing tiles", async ({ page }) => {
   test.fail(); // EXPECTED FAIL — pre-multipath: routing tiles not yet on homepage
   await page.goto("/");
-  await expect(page.getByText("Qualifying a new hardware design?")).toBeVisible();
+  await expect(page.getByText("Fixtures on the floor with no visibility?")).toBeVisible();
   await expect(page.getByText("Ready to go to production?")).toBeVisible();
-  await expect(page.getByText("Fixtures already on the floor?")).toBeVisible();
+  await expect(page.getByText("Qualifying a new hardware design?")).toBeVisible();
 });
 
 // MP-4: Homepage tiles link to correct routes
@@ -93,7 +93,7 @@ test("MP-9: /qualify page content and CTA", async ({ page }) => {
 test("MP-10: /modernize page content and CTA", async ({ page }) => {
   test.fail(); // EXPECTED FAIL — pre-multipath: /modernize not yet implemented
   await page.goto("/modernize");
-  await expect(page.getByRole("heading", { name: /Your fixtures\. Connected\./i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Fixtures on the floor\. Finally visible\./i })).toBeVisible();
   await expect(page.getByText(/no rip.and.replace|without replacing/i)).toBeVisible();
   await expect(page.locator('a[href="/contact?inquiry=modernize"]')).toBeVisible();
 });
