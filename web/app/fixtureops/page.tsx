@@ -25,7 +25,7 @@ export default function FixtureOps() {
         </p>
         <div className="rounded-lg p-5 max-w-xl" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
           <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
-            Every fixture quote takes weeks. The price changes when scope changes. And after delivery,
+            Every fixture quote takes too long. The price changes when scope changes. And after delivery,
             you&apos;re on your own — no remote support, no OTA updates, no one to call when the line goes
             down.
           </p>

@@ -49,7 +49,7 @@ export default function Home() {
             },
             {
               headline: "Ready to go to production?",
-              body: "Fixed-price fixtures, delivered in weeks, connected and supported for life. No surprise T&M invoices. No black-box vendor.",
+              body: "Fixed-price fixtures, built fast, connected and supported for life. No surprise T&M invoices. No black-box vendor.",
               cta: "Get a fixture estimate",
               href: "/fixtureops",
             },
