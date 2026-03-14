@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: "INTenX — Custom Test Infrastructure",
     template: "%s | INTenX",
   },
-  description: "INTenX designs, builds, and manages production test fixtures — connected to a platform that gives your team real-time yield data, AI-assisted diagnostics, and remote support.",
+  description: "INTenX designs, connects, and manages production test fixtures for hardware manufacturers. We help teams launch faster, modernize legacy fixtures, and run test infrastructure without building a large internal test organization.",
   robots: {
     index: true,
     follow: true,

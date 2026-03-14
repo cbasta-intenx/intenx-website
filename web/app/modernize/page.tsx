@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Connect Existing Test Fixtures",
   description:
-    "Add remote monitoring, AI diagnostics, and managed support to your existing production test fixtures. No rip-and-replace.",
+    "Connect your existing production test fixtures — add yield visibility, remote support, and managed lifecycle without replacing hardware.",
   alternates: { canonical: "/modernize" },
   openGraph: { title: "Connect Existing Test Fixtures | INTenX FixtureOps", url: "/modernize" },
 };
@@ -32,10 +32,10 @@ export default function ModernizePage() {
           Modernize Existing Fixtures
         </p>
         <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6" style={{ color: "var(--foreground)" }}>
-          Your fixtures. Connected.
+          Fixtures on the floor. Finally visible.
         </h1>
         <p className="text-lg leading-relaxed mb-12" style={{ color: "var(--muted)" }}>
-          No rip-and-replace. Add remote monitoring, AI diagnostics, and managed support to what you already have.
+          Yield data, remote support, and managed lifecycle — without replacing what you have.
         </p>
 
         {/* Pain */}
@@ -56,16 +56,16 @@ export default function ModernizePage() {
             Connect the fixtures you have.
           </h2>
           <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
-            The FixtureOps Gateway connects to your existing test hardware. You get a Grafana dashboard with
-            FPY and Cpk, an AI diagnostic layer that classifies faults before they become failures, OTA
-            firmware delivery, and remote support via audited SSH tunnel. No new fixtures. No production
-            interruption. Operational in days.
+            The FixtureOps Gateway connects to your existing test hardware. You get a live dashboard with
+            FPY and Cpk, fault diagnosis that surfaces root causes before they stop the line, OTA
+            firmware delivery, and remote support via audited SSH tunnel. Most vendors stop at delivery.
+            INTenX keeps the fixtures running.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               { label: "Real-time yield visibility", body: "FPY, Cpk, and fault frequency on a live Grafana dashboard. Ops sees what engineering sees." },
-              { label: "AI fault classification", body: "The LLM diagnostic layer identifies fault patterns and probable causes before they become line stoppages." },
+              { label: "Faster fault diagnosis", body: "Pattern recognition that surfaces probable root causes and repair guidance before faults become line stoppages." },
               { label: "OTA firmware delivery", body: "Recipe updates and firmware changes pushed remotely. No site visit, no manual process." },
               { label: "Remote support", body: "Audited SSH tunnel gives INTenX engineers secure access to diagnose and resolve issues without travel." },
             ].map(({ label, body }) => (
