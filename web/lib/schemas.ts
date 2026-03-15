@@ -23,5 +23,12 @@ export const FixtureSchema = z.object({
   marketingOptIn: z.boolean().default(false),
 });
 
+export const SampleReportSchema = z.object({
+  firstName: z.string().min(1).max(200),
+  email:     z.string().email().max(254),
+  company:   z.string().min(1).max(200),
+});
+
 export type ContactPayload = z.infer<typeof ContactSchema>;
 export type FixturePayload = z.infer<typeof FixtureSchema>;
+export type SampleReportPayload = z.infer<typeof SampleReportSchema>;

@@ -129,6 +129,16 @@ export default function ModernizePage() {
           </p>
           <ModernizeEstimator />
         </div>
+
+        {/* Sample report CTA */}
+        <div className="mt-12 rounded-lg p-6" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
+          <p className="text-sm font-semibold mb-2" style={{ color: "var(--foreground)" }}>
+            Want to see what a full Readiness Report looks like?
+          </p>
+          <a href="/modernize/sample-report" style={{ color: "var(--accent)", fontSize: "0.875rem" }}>
+            Download a sample assessment →
+          </a>
+        </div>
       </section>
     </>
   );
