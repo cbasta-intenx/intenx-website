@@ -14,9 +14,35 @@ const modernizeSchema = {
   name: "FixtureOps Connect",
   provider: { "@type": "Organization", name: "INTenX", url: "https://intenx.io" },
   description:
-    "Add remote monitoring, AI diagnostics, and managed support to existing production test fixtures via the FixtureOps Gateway — no rip-and-replace.",
+    "Connect existing production test fixtures — yield visibility, remote support, and managed lifecycle without rip-and-replace.",
   url: "https://intenx.io/modernize",
 };
+
+const featureTiles = [
+  { label: "Real-time yield visibility", body: "FPY, Cpk, and fault frequency on a live dashboard. Ops sees what engineering sees." },
+  { label: "Faster fault diagnosis", body: "Pattern recognition that surfaces probable root causes and repair guidance before faults become line stoppages." },
+  { label: "OTA firmware delivery", body: "Recipe updates and firmware changes pushed remotely. No site visit, no manual process." },
+  { label: "Remote support", body: "Audited SSH tunnel gives INTenX engineers secure access to diagnose and resolve issues without travel." },
+];
+
+const archetypes = [
+  {
+    label: "Read-Only Connectivity",
+    body: "Telemetry, dashboards, alerting. No changes to core test logic. Fastest to deploy.",
+  },
+  {
+    label: "Supportability Retrofit",
+    body: "Remote support tunnel, structured diagnostics, controlled update paths.",
+  },
+  {
+    label: "Control-Layer Modernization",
+    body: "Replace fragile PC/HMI/PLC orchestration while preserving fixture mechanics.",
+  },
+  {
+    label: "Fixture Estate Standardization",
+    body: "Bring multiple legacy fixtures onto a common architecture and support model.",
+  },
+];
 
 export default function ModernizePage() {
   return (
@@ -63,12 +89,7 @@ export default function ModernizePage() {
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              { label: "Real-time yield visibility", body: "FPY, Cpk, and fault frequency on a live Grafana dashboard. Ops sees what engineering sees." },
-              { label: "Faster fault diagnosis", body: "Pattern recognition that surfaces probable root causes and repair guidance before faults become line stoppages." },
-              { label: "OTA firmware delivery", body: "Recipe updates and firmware changes pushed remotely. No site visit, no manual process." },
-              { label: "Remote support", body: "Audited SSH tunnel gives INTenX engineers secure access to diagnose and resolve issues without travel." },
-            ].map(({ label, body }) => (
+            {featureTiles.map(({ label, body }) => (
               <div key={label} className="rounded-lg p-4" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
                 <p className="text-xs font-semibold mb-2" style={{ color: "var(--foreground)" }}>{label}</p>
                 <p className="text-xs leading-relaxed" style={{ color: "var(--muted)" }}>{body}</p>
@@ -77,15 +98,37 @@ export default function ModernizePage() {
           </div>
         </div>
 
-        {/* CTA */}
+        {/* Retrofit archetypes */}
+        <div className="mb-12">
+          <h2 className="text-xl font-semibold mb-2" style={{ color: "var(--foreground)" }}>
+            Four retrofit paths.
+          </h2>
+          <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
+            Not every modernization is the same. The right scope depends on your fixtures, your constraints,
+            and what you need to run reliably.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {archetypes.map(({ label, body }) => (
+              <div key={label} className="rounded-lg p-4" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
+                <p className="text-xs font-semibold mb-2" style={{ color: "var(--foreground)" }}>{label}</p>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--muted)" }}>{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Modernization Readiness Report CTA */}
         <div className="rounded-lg p-6" style={{ background: "var(--surface)", border: "1px solid var(--accent)" }}>
-          <p className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>Connect your existing fixtures.</p>
+          <p className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>
+            Start with a Modernization Readiness Report.
+          </p>
           <p className="text-sm mb-4" style={{ color: "var(--muted)" }}>
-            Tell us what fixtures you have, your test hardware interface, and your connectivity constraints.
-            We&apos;ll scope a gateway integration.
+            Before scoping a retrofit, INTenX conducts a paid assessment — platform inventory,
+            integration feasibility, and a ROM quote. $1,500–$7,500 depending on fixture count and
+            on-site requirements. 50–100% credited toward execution if the project closes within 60 days.
           </p>
           <a href="/contact?inquiry=modernize" className="btn-primary">
-            Connect your fixtures
+            Request a Readiness Assessment
           </a>
         </div>
       </section>
