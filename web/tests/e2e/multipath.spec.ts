@@ -38,10 +38,11 @@ test("MP-5: nav contains Solutions label and dropdown links to all three paths",
   await page.goto("/");
   // Solutions is a <span>, not a link — check text presence in nav
   await expect(page.locator("nav").getByText("Solutions")).toBeVisible();
-  // Dropdown links are opacity-0 at rest; use toBeAttached to verify DOM presence
-  await expect(page.locator('nav a[href="/qualify"]')).toBeAttached();
-  await expect(page.locator('nav a[href="/fixtureops"]')).toBeAttached();
-  await expect(page.locator('nav a[href="/modernize"]')).toBeAttached();
+  // Dropdown links are inside a nested <ul> within the Solutions <li>
+  // The CTA button (also in nav) shares /fixtureops href — scope to nested list only
+  await expect(page.locator('nav li ul a[href="/qualify"]')).toBeAttached();
+  await expect(page.locator('nav li ul a[href="/fixtureops"]')).toBeAttached();
+  await expect(page.locator('nav li ul a[href="/modernize"]')).toBeAttached();
 });
 
 // MP-6: Contact form has new inquiry types
@@ -76,7 +77,7 @@ test("MP-8: sitemap.xml includes /qualify and /modernize", async ({ page }) => {
 test("MP-9: /qualify page content and CTA", async ({ page }) => {
   await page.goto("/qualify");
   await expect(page.getByRole("heading", { name: /Test fixtures for design validation/i })).toBeVisible();
-  await expect(page.getByText(/production fixture/i)).toBeVisible();
+  await expect(page.getByText(/production fixture/i).first()).toBeVisible();
   await expect(page.locator('a[href="/contact?inquiry=qualify"]')).toBeVisible();
 });
 
