@@ -26,7 +26,7 @@ const services = [
     items: [
       "Fixture-to-cloud connectivity via MQTT / Sparkplug B",
       "Real-time yield dashboards and failure trend analysis",
-      "AI-assisted diagnostics — pattern detection across test runs",
+      "Fault diagnosis and repair guidance — pattern detection across test runs",
       "MES and ERP integration",
       "Remote fixture monitoring and support",
       "PostgreSQL-backed — open standards, no black box",
@@ -37,7 +37,7 @@ const services = [
     description: "Practical AI implementation for manufacturing and engineering teams.",
     items: [
       "AI workflow design for production and quality ops",
-      "Context governance for AI-assisted engineering teams",
+      "Context governance for AI-augmented engineering teams",
       "Team training and onboarding for AI tooling",
       "Embedded systems and firmware consulting",
       "Electronics design and hardware bring-up support",

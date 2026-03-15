@@ -14,7 +14,7 @@ test("home page CTA links to /fixtureops", async ({ page }) => {
 
 test("three pillars are visible", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByText("Fixed-price fixtures")).toBeVisible();
-  await expect(page.getByText("Connected platform")).toBeVisible();
-  await expect(page.getByText("Managed lifecycle")).toBeVisible();
+  await expect(page.getByText("Fixed-price fixtures", { exact: true })).toBeVisible();
+  await expect(page.getByText("Connected platform", { exact: true })).toBeVisible();
+  await expect(page.getByText("Managed lifecycle", { exact: true })).toBeVisible();
 });

@@ -1,11 +1,26 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
 import { sendContactEmail } from "../actions/sendEmail";
 
-const inquiryTypes = ["Fixture quote", "Platform demo", "Partnership", "Other"];
+const inquiryTypes = [
+  "Fixture quote",
+  "Platform demo",
+  "Design Qualification",
+  "Connect Existing Fixtures",
+  "Partnership",
+  "Other",
+];
+
+const PARAM_MAP: Record<string, string> = {
+  qualify:  "Design Qualification",
+  modernize: "Connect Existing Fixtures",
+};
 
 export default function ContactForm() {
+  const searchParams = useSearchParams();
+  const preselect = PARAM_MAP[searchParams.get("inquiry") ?? ""] ?? "";
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -68,7 +83,7 @@ export default function ContactForm() {
 
       <div className="flex flex-col gap-1">
         <label htmlFor="inquiry_type" className="text-xs font-medium" style={{ color: "var(--muted)" }}>Inquiry type</label>
-        <select id="inquiry_type" name="inquiry_type"
+        <select id="inquiry_type" name="inquiry_type" defaultValue={preselect || "Fixture quote"}
           className="rounded px-3 py-2 text-sm outline-none"
           style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" }}>
           {inquiryTypes.map((t) => <option key={t} value={t}>{t}</option>)}

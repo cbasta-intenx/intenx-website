@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
@@ -18,7 +19,9 @@ export default function Contact() {
         We respond within 1 business day.
       </p>
 
-      <ContactForm />
+      <Suspense fallback={null}>
+        <ContactForm />
+      </Suspense>
 
       <p className="text-sm mt-8" style={{ color: "var(--muted)" }}>
         Or reach us directly at{" "}
