@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ModernizeEstimator from "./ModernizeEstimator";
 
 export const metadata: Metadata = {
   title: "Connect Existing Test Fixtures",
@@ -117,19 +118,16 @@ export default function ModernizePage() {
           </div>
         </div>
 
-        {/* Modernization Readiness Report CTA */}
-        <div className="rounded-lg p-6" style={{ background: "var(--surface)", border: "1px solid var(--accent)" }}>
-          <p className="font-semibold mb-2" style={{ color: "var(--foreground)" }}>
-            Start with a Modernization Readiness Report.
+        {/* Modernize Estimator */}
+        <div className="mb-4">
+          <h2 className="text-xl font-semibold mb-2" style={{ color: "var(--foreground)" }}>
+            Get a rough estimate.
+          </h2>
+          <p className="text-sm mb-8" style={{ color: "var(--muted)" }}>
+            Answer seven questions. We&apos;ll give you a ROM range — or tell you when a scoping
+            conversation makes more sense.
           </p>
-          <p className="text-sm mb-4" style={{ color: "var(--muted)" }}>
-            Before scoping a retrofit, INTenX conducts a paid assessment — platform inventory,
-            integration feasibility, and a ROM quote. $1,500–$7,500 depending on fixture count and
-            on-site requirements. 50–100% credited toward execution if the project closes within 60 days.
-          </p>
-          <a href="/contact?inquiry=modernize" className="btn-primary">
-            Request a Readiness Assessment
-          </a>
+          <ModernizeEstimator />
         </div>
       </section>
     </>
