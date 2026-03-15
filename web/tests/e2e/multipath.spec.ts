@@ -82,11 +82,13 @@ test("MP-9: /qualify page content and CTA", async ({ page }) => {
 });
 
 // MP-10: /modernize page content
-test("MP-10: /modernize page content and CTA", async ({ page }) => {
+test("MP-10: /modernize page content and estimator", async ({ page }) => {
   await page.goto("/modernize");
   await expect(page.getByRole("heading", { name: /Fixtures on the floor\. Finally visible\./i })).toBeVisible();
   await expect(page.getByText(/no rip.and.replace|without replacing/i)).toBeVisible();
-  await expect(page.locator('a[href="/contact?inquiry=modernize"]')).toBeVisible();
+  // Estimator replaced the old static CTA — verify it renders and the sample report link is present
+  await expect(page.getByText(/Get a rough estimate/i)).toBeVisible();
+  await expect(page.locator('a[href="/modernize/sample-report"]')).toBeVisible();
 });
 
 // MP-11: Content compliance on new routes
