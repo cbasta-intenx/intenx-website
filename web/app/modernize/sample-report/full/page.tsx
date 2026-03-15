@@ -137,7 +137,7 @@ export default function FullReportPage() {
           </div>
         </div>
         <p className="text-xs mt-4" style={{ color: "var(--muted)" }}>
-          Recommended first step: Modernization Readiness Report — $4,500, 100% credited toward execution.
+          Recommended first step: Modernization Readiness Report — $4,500, 100% credited toward execution if the project proceeds within 60 days, as confirmed in the assessment agreement.
         </p>
       </div>
 
@@ -477,7 +477,7 @@ export default function FullReportPage() {
             </tbody>
           </table>
         </div>
-        <Note>Readiness Report fee ($4,500) credited 100% toward Phase 1 execution if project proceeds within 60 days.</Note>
+        <Note>Readiness Report fee ($4,500) credited 100% toward Phase 1 execution if project proceeds within 60 days, as confirmed in the assessment agreement.</Note>
 
         <p className="text-sm font-medium mb-4" style={{ color: "var(--foreground)" }}>
           Phase 2: Station A — Decision point after Readiness Report
@@ -537,7 +537,7 @@ export default function FullReportPage() {
           platform risk review, plant IT walkthrough.
         </p>
         <p className="text-sm font-medium mb-4" style={{ color: "var(--foreground)" }}>
-          $4,500 — 100% credited toward execution if project proceeds within 60 days.
+          $4,500 — 100% credited toward execution if the project proceeds within 60 days, as confirmed in the assessment agreement.
         </p>
         <a href="/contact?inquiry=modernize" className="btn-primary">
           Start with a scoping conversation

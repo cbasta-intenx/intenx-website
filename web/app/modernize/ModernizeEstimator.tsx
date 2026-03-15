@@ -157,7 +157,8 @@ export default function ModernizeEstimator() {
               <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
                 This covers connected fixture coverage, managed deployment, and validated scenario
                 testing for your fixture. Configuration and workflow adaptation are included in the
-                managed service — no new PO every time a recipe or limit changes.
+                managed service — no new PO every time a recipe or limit changes. Scope-bounded
+                changes are included — larger validation or qualification cycles are quoted separately.
               </p>
               {result.monthlyLow !== undefined && result.monthlyHigh !== undefined && (
                 <p className="text-sm mb-4" style={{ color: "var(--muted)" }}>
@@ -178,8 +179,7 @@ export default function ModernizeEstimator() {
                 </p>
               )}
               <p className="text-xs leading-relaxed" style={{ color: "var(--muted)" }}>
-                This is a rough-order-of-magnitude range. Actual scope confirmed during a short
-                scoping call — no cost, no obligation.
+                This is a rough-order-of-magnitude range. Actual scope confirmed during a short scoping call.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -207,7 +207,7 @@ export default function ModernizeEstimator() {
               <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
                 We&apos;ll assess your fixture&apos;s platform, integration constraints, and modernization
                 options. What you invest in scoping applies as a credit toward your project
-                if you move forward within 60 days.
+                if you move forward within 60 days, as confirmed in the assessment agreement.
               </p>
               <p className="text-sm" style={{ color: "var(--muted)" }}>
                 Scoping investment: $1,500–$7,500 depending on fixture count and whether
