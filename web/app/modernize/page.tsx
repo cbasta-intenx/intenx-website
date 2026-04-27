@@ -83,10 +83,10 @@ export default function ModernizePage() {
             Connect the fixtures you have.
           </h2>
           <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
-            The FixtureOps Gateway connects to your existing test hardware. You get a live dashboard with
-            FPY and Cpk, fault diagnosis that surfaces root causes before they stop the line, OTA
-            firmware delivery, and remote support through controlled SSH-based access paths, where customer policy permits. Most vendors stop at delivery.
-            INTenX keeps the fixtures running.
+            The FixtureOps Gateway is designed to connect to your existing test hardware to enable a live dashboard with
+            FPY and Cpk, structured fault diagnostics, OTA firmware delivery, and remote support through controlled
+            SSH-based access paths, where customer policy permits. FixtureOps engagements are structured to keep
+            fixtures supported and updatable after deployment — not stop at the shipping dock.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">

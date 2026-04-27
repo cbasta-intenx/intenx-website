@@ -155,10 +155,10 @@ export default function ModernizeEstimator() {
                 {fmtDollar(result.low)}–{fmtDollar(result.high)}
               </p>
               <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-                This covers connected fixture coverage, managed deployment, and validated scenario
-                testing for your fixture. Configuration and workflow adaptation are included in the
-                managed service — no new PO every time a recipe or limit changes. Scope-bounded
-                changes are included — larger validation or qualification cycles are quoted separately.
+                This covers connected fixture coverage, managed deployment, and structured scenario
+                testing for your fixture. Subscription customers receive configuration and workflow
+                adaptation within their service terms — not invoiced as new POs for changes within
+                agreed scope. Larger validation or qualification cycles are quoted separately.
               </p>
               {result.monthlyLow !== undefined && result.monthlyHigh !== undefined && (
                 <p className="text-sm mb-4" style={{ color: "var(--muted)" }}>

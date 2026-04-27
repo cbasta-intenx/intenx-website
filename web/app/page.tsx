@@ -17,7 +17,7 @@ const pillars = [
   },
   {
     label: "Managed lifecycle",
-    body: "Test Fixtures as a Service (TFaaS) — INTenX owns the fixture hardware, you pay per test. Maintenance, updates, and support included.",
+    body: "Test Fixtures as a Service (TFaaS) — INTenX owns the fixture hardware, you pay monthly. Maintenance, updates, and support included.",
   },
 ];
 
