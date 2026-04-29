@@ -56,11 +56,11 @@ export default function QualifyPage() {
             Qualification infrastructure that survives the handoff.
           </h2>
           <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
-            FixtureOps Qualify fixtures run on the same stack as your production test system from day one.
-            The characterization data you collect during EVT flows directly into your production fixture
-            configuration. When you release to manufacturing, we deliver a throughput-optimized derivative —
-            not a rebuild. Your test limits are derived from real data. Your production fixture is ready
-            before your first unit ships.
+            FixtureOps Qualify fixtures are designed on the same stack used for production — so the
+            characterization data you collect during EVT flows into your production fixture configuration.
+            When you release to manufacturing, the production fixture is engineered as a throughput-optimized
+            derivative, not a rebuild. Test limits are derived from real characterization data, and your
+            production fixture path is defined before your first unit ships.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">

@@ -33,13 +33,13 @@ const services = [
     ],
   },
   {
-    title: "AI Enablement & Engineering Consulting",
+    title: "AI Enablement & Engineering Engagements",
     description: "Practical AI implementation for manufacturing and engineering teams.",
     items: [
       "AI workflow design for production and quality ops",
       "Context governance for AI-augmented engineering teams",
       "Team training and onboarding for AI tooling",
-      "Embedded systems and firmware consulting",
+      "Embedded systems and firmware engagements",
       "Electronics design and hardware bring-up support",
     ],
   },

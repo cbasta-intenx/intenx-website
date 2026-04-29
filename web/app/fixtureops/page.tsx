@@ -30,9 +30,9 @@ export default function FixtureOps() {
             down.
           </p>
           <p className="text-sm leading-relaxed mt-3" style={{ color: "var(--muted)" }}>
-            FixtureOps fixtures are fixed-price for defined scope, built fast, and managed for the life of the program.
-            Software changes — new board variants, recipe updates, integration changes — are included.
-            No new PO every time your product evolves.
+            FixtureOps fixtures are quoted up front for defined scope and built efficiently. Subscription customers
+            receive software changes — new board variants, recipe updates, integration changes — covered within
+            their service terms, not invoiced as new POs for changes within agreed scope.
           </p>
         </div>
       </section>
